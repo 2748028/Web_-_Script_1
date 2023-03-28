@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<link rel="stylesheet" href="format.css">
+		<meta http-equiv="refresh" content="6000">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script src="validateForm.js"></script>
+		<script>		
+			function writeCookie() {
+				var user = "username=";
+				user += document.forms["userName"]["usrnm"].value;
+				document.cookie = user;
+				
+				readCookie();
+				window.location=document.getElementById('redirectMain').href;
+				return false;
+			}
+			
+			function readCookie() {
+				var x = document.cookie.split("=");
+				document.getElementById("obj1").style.visibility = "hidden";
+				document.getElementById("obj2").innerHTML = "Howdy " + x[1];
+				document.getElementById("obj2").style.visibility = "visible";
+			}
+		</script>
+	</head>
+	<body id = "body">
+		<div id="container" style="min-height:200px; text-align:center;">
+			<div id="heading">
+				<hr><h2>Login</h2><hr>
+			</div>
+			<form id="obj1" name="userName" onsubmit="return writeCookie()" style="visibility:visible;" action="index.html">
+				<table align="center"><tr><td>
+					<p>Username:</p>
+					</td><td>
+					<input type="text" name="usrnm" id="usrnm" style="border-radius:5px" />
+					</td></tr>
+					<tr><td>
+					<p>Password:</p>
+					</td><td>
+					<input type="text" name="passwd" id="passwd" style="border-radius:5px" />
+					</td></tr>
+				</table>
+				<input type="submit" name="Submit" style="border-radius:10px">
+			</form>
+			<a href="index.html" id="redirectMain"></a>
+		</div>
+	</body>
+</html>

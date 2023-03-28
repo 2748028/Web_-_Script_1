@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="format.css">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="validateForm.js"></script>
+		<script>			
+			function writeCookie() {
+				var user = "username=";
+				user += document.forms["userName"]["usrnm"].value;
+				document.cookie = user;
+				
+				readCookie();
+				return false;
+			}
+			
+			function readCookie() {
+				var x = document.cookie.split("=");
+				document.getElementById("obj1").style.visibility = "hidden";
+				document.getElementById("obj2").innerHTML = "Howdy " + x[1];
+				document.getElementById("obj2").style.visibility = "visible";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="content" style="margin-left:50px;padding:30px;min-height:300px;">
+			<div style="color:white;"><br>
+				Welcome to our Professional services page. 
+				Below are the services our company provides.
+				Please click on a service to learn more about it.
+			</div><br>
+			<p id="obj2" style="visibility:hidden">Welcome to the site yo</p>
+		</div>
+	</body>
+</html>

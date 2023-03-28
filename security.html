@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="format.css">
+		<meta http-equiv="refresh" content="30">
+		 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script>
+			function portScan()
+			{
+				var htmlText = "<tr><th width='75'><label>Port</label></th><th><label>State</label></th><tr>";
+				var port = [];
+				
+				<!-- Maybe "port[0] = checkPort(*portnumber*)" and it will return a boolean --->
+				<!---Not sure how to connect an external checkPort function to Kali though -->
+				port[0] = "up";port[8] = "up";port[15] = "up";port[80] = "up";port[102] = "up";port[150] = "up";port[512] = "up";port[918] = "up";port[1022] = "up";
+				var state = "up";
+				for (var i = 0; i < 1024; i++) 
+				{
+					if (port[i] == "up") 
+					{
+						htmlText += "<tr><th><label>" + i + "</label></th><th><label>" + port[i] + "</label></th></tr>";
+					}
+				}
+				document.getElementById('table1').innerHTML = htmlText;
+				
+				var rawFile = new XMLHttpRequest();
+				rawFile.open("GET", "localhost/itsw/ipaddresses.txt", false);
+				rawFile.onreadystatechange = function ()
+				{
+					if(rawFile.readyState === 4)
+					{
+						if(rawFile.status === 200 || rawFile.status == 1)
+						{
+							var allText = rawFile.responseText;
+							alert(allText);
+						}
+					}
+				}
+				htmlText = "<tr><th><label>IP Address Reachability</label></th></tr>";
+				for(i in array) {
+					htmlText+="<tr><th><label>" + array[i] + "</label></th></tr>";
+				}
+				document.getElementById('table2').innerHTML = htmlText;
+			}
+		</script>
+		<style>
+			width:100px;
+		</style>
+	</head>
+	<body onload="portScan()">
+		<div id="content" style="margin-left:100px;padding:10px;min-height:300px;">
+			<table id="table1"></table>
+			<table id="table2"></table>
+			<a href="login.html" id="redirectLogin"></a>
+		</div>
+	</body>
+</html>
