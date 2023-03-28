@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+<body>
+	
+	<script>
+	
+	var a = 1;
+	var b = 2;
+	
+	function sum()
+	{
+		return a + b;
+	}
+	
+	var r = Math.random();
+	Math.round(4.5);
+	Math.min(4,6,2,5);
+	
+	//Arrays
+	
+	var = cars = ["VW", "BMW", "AUDI"];
+	var c = cars[0];
+	
+	var d = cars.length;
+	var s = cars.sort();
+	
+	cars[cars.length] = "FORD";
+	cars[cars.length] = "Toyota";
+	
+	cars = cars.sort();
+	
+	function myFunction()
+	{
+		var htmlText = "<select>";
+		var i;
+		for(i=0; i<cars.length;i++)
+		{
+			htmlText += "<option value = " + i + ">" + cars[i] + "</option>";
+		)
+		htmlText += "</select>";
+		
+		document.getElementById("p1").innerHTML + htmlText;
+	}
+	
+	</script>
+	
+	<p 
+		id="p1">
+	</p>
+	
+	<button 
+		onclick='getElementById("p1").innerHTML=sum()'>Click
+	</button>
+	
+	<button
+		onclick="myFunction()">Click
+	</button>
+	
+	<select>
+		<option value = "VW">VW</option>
+		<option value = "AUDI">AUDI</option>
+	</select>
+	
+</body>
+	
+</html>

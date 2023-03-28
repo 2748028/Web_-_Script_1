@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+<html>
+	<body>
+	
+	Name: <input type="text" id="form1" onchange ="myFunc()">
+	
+	<p id="p1"></p>
+	<p id="p2"></p>
+	<p id="p3"></p>
+	
+	<button onclick="v = setTimeout(function() {alert('Timeout')},5000)">Click</button>
+	
+		<script>
+	
+		//Learn the difference between bubbling and capturing events.
+			/*(function ()
+			{
+				alert("H1 there");
+			}) ();*/
+			
+			function myFunc() 
+			{
+				var f = document.getElementById("form1");
+				f.value = f.value.toUpperCase();
+				
+				document.getElementById("p1").innerHTML = f.value;
+				
+				document.getElementById("p1").innerHTML = "Width " + screen.width;
+				document.getElementById("p2").innerHTML = location.href;
+				
+				document.getElementById("p3").innerHTML = location.protocol;
+			}
+	
+		</script>
+	
+	</body>
+</html>

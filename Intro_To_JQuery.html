@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<script src=
+		"http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+	</script>
+
+</head>
+
+<body>
+
+	<p>This is a paragraph 1</p>
+	<p id="p2">This is a paragraph 2</p>
+	
+	<button id="bt1">Click</button>
+	<button id="bt2">Button 2 </button>
+	
+	
+	<div id="div1" style="width:200px; height:40px; background-color:red">
+	</div>
+	
+	<div id="div1" style="width:200px; height:40px; background-color:green; position:absolute">
+	</div>
+	
+	<script>
+	
+		//document.getElementById("p2").innerHTML = "change"; //HTML hiding method
+		
+		$(document).ready(function()
+		{
+			$("bt1").click(function()
+			{
+				$("#p2").toggle(); //Toggle button function
+				$(this).hide();
+				$("#div1").fadeOut(5000); //Fadeout measured in ms
+			});
+			
+			$("#bt2").click(function()
+			{
+				//$("div2").slideToggle();
+				$("div2").animate({right:'300px'}).fade();
+			});
+		});
+		
+		//$("p").hide();
+	
+	</script>
+
+
+</body>
+
+</html>

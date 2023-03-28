@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="styles.css">
+
+<body>
+    <p>Username:</p>
+    <form id="user" name="userName" onsubmit="return writeCookie()" style="visibility:visible">
+        <label id="name">Please enter your name.</label>
+        <input type="text" name="name"><br>
+        <input type="submit" name="Submit">
+    </form>
+
+    <p id="message" style="visibility:hidden"></p>
+</body>
+
+<script>
+    function writeCookie(){
+        var user = "username=";
+        user += document.forms["userName"]["name"].value;
+        document.cookie = user;
+
+        readCookie();
+        return false;
+    }
+    function readCookie(){
+        var x = document.cookie.split("=");
+        document.getElementById("user").style.visibility = "hidden";
+        document.getElementById("message").innerHTML = "Hello " + x[1];
+        document.getElementById("message").style.visibility = "visible";
+    }
+</script>

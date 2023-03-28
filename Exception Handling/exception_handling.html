@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<body>
+	
+		<p id="p1">
+		</p>
+		
+		<script>
+		
+		var x;
+		
+		try
+		{
+			alert("Hello");
+		}
+		
+		catch(err)
+		{
+			document.getElementById("p1").innerHTML = err.message;
+		}
+		
+		var v = "";
+		
+		try
+		{
+			if (v == "") throw "empty";
+			if (v == "hello") throw "not empty";
+		}
+		
+		catch(err)
+		{
+			alert(err.message);
+		}
+		
+		//JSON
+		
+		var text = {"students" : {' + 
+		'{"name":"Richard", "ID":"100"},' +
+		'{"name":"Bob", "ID":"101"}}}';
+		
+		var obj = JSON.parse(text);
+		
+		document.getElementById("p1").innerHTML = obj.students[1].name + " " +
+		obj.students[1].ID;
+		
+		//JS OBJECTS
+		
+		var student = {name:"Richard", ID:"1"};
+		
+		var student = new object();
+		student.name = "Richard";
+		student.ID = "1";
+		student.year = "2016";
+		
+		function student(name, id, year)
+		{
+			this.name = name;
+			this.ID = id;
+			this.year = year;
+			
+			function changeID(id)
+			{
+				this.ID = id
+				{
+					this.ID = id;
+					this.name = function () {return this.name};
+				}
+			}
+		}
+		
+		var netStd = new student("Richard, "1", "2016");
+		
+		netStd.changeID("3");
+		
+		
+		
+		</script>
+		
+	</body>
+</html>	
