@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Real Time System Monitoring</title>
+	<link rel="stylesheet" href="format.css">
+	<meta http-equiv="refresh" content="30">
+</head>
+<body>
+	<div id="container" style="background-color:#304050">
+		<br>
+		<a href="main.html"><h1>Real Time System Monitoring</h1></a>
+		<hr><h2>Networking Performance Information</h2><hr>
+		<div id="menu" style="background-color:#405570;height:200px;width:100px;padding:20px;float:left;">
+			<br><hr>
+			<a href="main.html">Home</a><br>
+			<a href="">Performance</a><br>
+			<a href="security.html">Security</a><br>
+			<a href="network.html">Network Info</a><br>
+			<a href="about.html">About</a><br>
+			<a href="contact.html">Contact</a><br>
+		</div>
+		
+		<div id="content" style="margin-left:150px;padding:10px;min-height:300px;">
+		
+			<canvas id="mycanvas" width="800" height="400"></canvas>
+
+			<script>				
+				/*var allText;
+				
+				function readTextFile(file)
+				{
+					var rawFile = new XMLHttpRequest();
+					rawFile.open("GET", file, false);
+					
+					rawFile.onreadystatechange = function ()
+					{
+						if(rawFile.readyState === 4)
+						{
+							if(rawFile.status === 200 || rawFile.status == 0)
+							{
+								allText = rawFile.responseText;
+							}
+						}
+					}
+				rawFile.send(null);
+				}*/
+				
+				
+				
+				/* var interval = setInterval(function () {myTimer()}, 1000);
+				function myTimer() {
+				var d = new Date();
+				document.getElementByID("demo").innerHTML = d.toLocaleTimeString();
+				} */
+				
+				var allText = '{"data":[12,30,16,50,100,20,30,40,56,100,125,130,140,170,190,180,150,100,90,50,60,40]}';
+
+				var obj = JSON.parse(allText);
+				var v = document.getElementById("mycanvas");
+				var c = v.getContext("2d");
+				c.fillStyle = "#FFFFFF";
+				c.fillRect(100,100,400,200);
+		
+				c.moveTo(100,300);
+				for ( i = 0; i < 100; i++) {
+					c.lineTo((i*10) + 100,300 - obj.data[i]);
+					c.stroke();
+				}
+				
+				c.font = "15px Arial";
+				c.fillText("Performance Monitoring", 200, 90);
+				c.strokeText();
+			</script>
+		</div>
+		<div id="footer" style="background-color:#405570; text-align: center; color:lightgray;">
+			<hr>
+			<p>DEVELOPED BY MEEEEEEEEEEEEEEEE</p>
+			<hr>
+		</div>
+</body>
+</html>

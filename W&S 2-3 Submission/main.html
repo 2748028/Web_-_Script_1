@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>	
+
+<head>
+	<title>Real Time System Monitoring</title>
+	<link rel="stylesheet" href="format.css">
+</head>
+<body>
+	<div id="container" style="background-color:#304050">
+		<br>
+		<h1>Real Time System Monitoring</h1>
+		<hr><h2>Main Page</h2><hr>
+		<div id="menu" style="background-color:#405570;height:200px;width:100px;padding:20px;float:left;">
+			<br><hr>
+			<a href="">Home</a><br>
+			<a href="performance.html">Performance</a><br>
+			<a href="security.html">Security</a><br>
+			<a href="network.html">Network Info</a><br>
+			<a href="about.html">About</a><br>
+			<a href="contact.html">Contact</a><br>
+		</div>
+		
+		
+		
+		<div id="content" style="margin-left:150px;padding:30px;min-height:300px;">
+		
+		<form id="obj1" name="userName" onsubmit="return writeCookie()" style="visibility:visible">
+			<p>Enter Your Username:</p>
+				<input type="text" name="usrnm" id="usrnm" />
+				<input type="submit" name="Submit">
+		</form>
+		
+		<p id="obj2" style="visibility:hidden">Welcome to the site yo</p>
+					
+		</div>
+		<div id="footer" style="background-color:#405570; text-align: center; color:lightgray;">
+			<hr>
+			<p>Powered By: The Good Luck Club.</p>
+			<hr>
+		</div>
+		
+		<script>			
+			function writeCookie() {
+				var user = "username=";
+				user += document.forms["userName"]["usrnm"].value;
+				document.cookie = user;
+				
+				readCookie();
+				return false;
+			}
+			
+			function readCookie() {
+				var x = document.cookie.split("=");
+				document.getElementById("obj1").style.visibility = "hidden";
+				document.getElementById("obj2").innerHTML = "Howdy " + x[1];
+				document.getElementById("obj2").style.visibility = "visible";
+			}
+		</script>
+</body>
+</html>

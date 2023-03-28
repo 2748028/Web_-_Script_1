@@ -1,0 +1,31 @@
+body{
+	background-color:#505e6d;
+}
+h1{
+	margin-left:20px;
+	color:white;
+}
+h2{
+	text-align:center;
+	color:white;
+}
+h5{
+	color:white;
+}
+a {
+	color:white;
+	text-decoration: none;
+}
+a:hover {
+	color:red;
+	text-decoration: none;
+}
+p{
+	color:white;
+}
+label {
+	color:white;
+	display: inline-block;
+	width: 50px;
+	text-align: right;
+}​

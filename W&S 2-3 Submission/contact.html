@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	
+	<script src="validateForm.js"></script>
+	
+	<link rel="stylesheet" href="format.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+	</script>
+	
+	<script>
+        
+        var head = '<table border="1"><tr><td><p>Name<p><td><p>ID<p><td><p>Email<p><td><p>Number<p>';
+        var cells = ' ';
+        var foot = '</table>';
+        var identification = [];
+        var count = 0;
+        function fun() {
+            
+            nam = document.getElementById('na').value;
+            ident = document.getElementById('ide').value;
+            emai = document.getElementById('em').value;
+            numbe = document.getElementById('num').value;
+            for (i=0;i<count;i++) {
+                if (ident === identification[i]) {
+                    alert("ID already used");
+                    throw new error("ID already used");
+                    
+                }
+            }
+            var check = validateForm();
+        if (check.length > 0){
+            alert(check);
+            throw new error("ERROR");
+        }
+            identification[count] = ident;
+            cells += " " + '<tr><td><p>' + " " + nam + " " + '</p></td><td><p>' + " " + ident + " " +  '</p></td><td><p>' + " " + emai + " " + '</p></td><td><p>' + " " + numbe + " " + '</p></td></tr>';
+           count += 1;
+           document.getElementById('table').innerHTML = head + cells + foot; 
+           
+        }
+    </script>
+<head>
+
+	<title>Contact Us Ticket Submission</title>
+	<meta http-equiv="refresh" content="6000">
+
+</head>
+<body>
+	<div id="container" style="background-color:#304050">
+		<br>
+		<a href="main.html"><h1>Contact & Ticket Submission.</h1></a>
+		<hr><h2>Contact Information</h2><hr>
+		<div id="menu" style="background-color:#405570;height:200px;width:100px;padding:20px;float:left;">
+			<br><hr>
+			<a href="main.html">Home</a><br>
+			<a href="performance.html">Performance</a><br>
+			<a href="security.html">Security</a><br>
+			<a href="network.html">Network Info</a><br>
+			<a href="about.html">About</a><br>
+			<a href="">Contact</a><br>
+		</div>
+		
+		<div id="content" style="margin-left:150px;padding:10px;min-height:200px;">
+			<form name="form" style="color:white">
+				<table>	<tr><td>				
+				<div class="block"><label>Name: </label></td>
+				<td><input type="text" id="na" /></div></td></tr>
+				
+				<tr><td><div class="block"><label>ID: </label></td>
+				<td><input type="text" id="ide" /></div></td></tr>
+				
+				<tr><td><div class="block"><label>Email: </label></td>
+				<td><input type="text" id="em" /></div></td></tr>
+                                
+                <tr><td><div class="block"><label>Phone Number: </label></td>
+				<td><input type="text" id="num" /></div></td></tr>
+                                
+                          
+				<tr><td>Support Type:</td><td>
+				<div><input type="radio" name="type" value="Report Outage"> Report An Outage</div>
+	
+				<div><input type="radio" name="type" value="Question Inquiry"> Questions Or Inquiries?</div>
+ 				<td></tr>
+				
+				<tr><td> <label>Product:</label> </td><td>
+				<select	name="product">
+					<option value="apple">Apple</option>
+	
+					<option value="orange">Orange</option>
+	
+					<option	value="pear">Pear</option>
+				</select></td></tr></table>
+
+				<div><input type="checkbox" value="terms" id="check" checked>I agree to the terms and conditions.</div><br>
+				<div><input name="generate" type="button" value="Submit" onclick='fun();'/></div>
+			</form>
+			<div id="table"></div>
+		</div>
+		
+		<div id="footer" style="background-color:#405570; text-align: center; color:lightgray;">
+
+			<hr>
+			<p>Powered By: The Goodluck Club</p>
+			<hr>
+
+		</div>
+</body>
+</html>

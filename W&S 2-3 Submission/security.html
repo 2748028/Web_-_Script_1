@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>Real Time System Monitoring</title>
+	<link rel="stylesheet" href="format.css">
+	<meta http-equiv="refresh" content="30">
+	<style>
+		width:100px;
+	</style>
+</head>
+<body onload="portScan()">
+	<script>
+		
+		function portScan()
+		{
+		var htmlText = "<tr><th><label>Port Num</label></th><th><label>State</label></th><tr>";
+		var port = [];
+		port[0] = "up";port[8] = "up";port[15] = "up";port[80] = "up";port[102] = "up";port[150] = "up";port[512] = "up";port[918] = "up";port[1022] = "up";
+		var state = "up";
+		for (var i = 0; i < 1024; i++) 
+		{
+			if (port[i] == "up") 
+			{
+				htmlText += "<tr><th><label>" + i + "</label></th><th><label>" + port[i] + "</label></th></tr>";
+			}
+		}
+		
+		document.getElementById('table1').innerHTML = htmlText;
+		}
+	</script>
+	
+	<div id="container" style="background-color:#304050">
+		<br>
+		<a href="main.html"><h1>Real Time System Monitoring</h1></a>
+		<hr><h2>Networking Security Information</h2><hr>
+		<div id="menu" style="background-color:#405570;height:200px;width:100px;padding:20px;float:left;">
+			<br><hr>
+			<a href="main.html">Home</a><br>
+			<a href="performance.html">Performance</a><br>
+			<a href="">Security</a><br>
+			<a href="network.html">Network Info</a><br>
+			<a href="about.html">About</a><br>
+			<a href="contact.html">Contact</a><br>
+		</div>
+		
+		<div id="content" style="margin-left:150px;padding:10px;min-height:300px;">
+			<table id="table1"></table>
+		</div>
+		<div 
+		<div id="footer" style="background-color:#405570; text-align: center; color:lightgray;">
+			<hr>
+				<p>DEVELOPED BY MEEEEEEEEEEEEEEEE</p>
+			<hr>
+		</div>
+	</div>
+</body>
+</html>

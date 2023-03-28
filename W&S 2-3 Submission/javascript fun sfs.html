@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    
+    
+    <script src="validateForm.js"></script>
+    
+    <script>
+        
+        var head = '<table border="1"><tr><td>Name<td>ID<td>Email<td>Number';
+        var cells = ' ';
+        var foot = '</table>';
+        var identification = [];
+        var count = 0;
+        function fun() {
+            
+            nam = document.getElementById('na').value;
+            ident = document.getElementById('ide').value;
+            emai = document.getElementById('em').value;
+            numbe = document.getElementById('num').value;
+            for (i=0;i<count;i++) {
+                if (ident === identification[i]) {
+                    alert("ID already used");
+                    throw new error("ID already used");
+                    
+                }
+            }
+            var check = validateForm();
+        if (check.length > 0){
+            alert(check);
+            throw new error("ERROR");
+        }
+            identification[count] = ident;
+            cells += '<tr>';
+            cells += '<td>';
+            cells += nam + '<td>' + ident + '<td>' + emai + '<td>' + numbe;
+            cells += '</td>';
+            cells += '</tr>\n';
+           count += 1;
+           document.getElementById('table').innerHTML = head + cells + foot; 
+           
+        }
+    </script>
+    
+    <body>
+        <form name="form">
+        <div><label>Name</label><input   style=left:5%;width:40%; type="text" id="na"></div>
+        <div><label>ID</label><input style=left:5%;width:40%; type="text" id="ide"></div>
+        <div><label>Email</label><input style=left:5%;width:40%; type="text" id="em"></div>
+        <div><label>Number</label><input style=left:5%;width:40%; type="text" id="num"></div>
+        <div><input name="generate" type="button" value="Create Table!" onclick='fun();'/></div>
+    </form>
+        <div id="table"></div>
+        </body>
+</html>
